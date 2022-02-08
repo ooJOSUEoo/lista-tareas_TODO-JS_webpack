@@ -40,3 +40,16 @@ textInput.addEventListener('keyup', (event) => {
     }
 
 });
+
+divTodoList.addEventListener('click',(e) => {
+
+    const nombreElemento = e.target.localName; //input, label, button
+    const todoElemento = e.target.parentElement.parentElement; //li
+    const todoId = todoElemento.getAttribute('data-id'); //id del todo
+
+    if(nombreElemento.includes('input')){ //click en el checkbox
+        todoList.marcarCompletado(todoId);
+        todoElemento.classList.toggle('completed');
+    }
+
+});
